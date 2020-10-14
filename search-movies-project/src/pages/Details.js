@@ -6,7 +6,12 @@ const API_KEY = 'e697495e'
 
 export class Detail extends Component {
     static propTypes = {
-        id: PropTypes.string
+        match: PropTypes.shape({
+            params: PropTypes.object,
+            isExact: PropTypes.bool,
+            path: PropTypes.string,
+            url: PropTypes.string
+        })
     }
 
     state = { movie: {} }
@@ -22,7 +27,8 @@ export class Detail extends Component {
 
 
     componentDidMount () {
-        const { id } = this.props
+        console.log(this.props);
+        const { id } = this.props.match.params
         this._fetchMovie ({ id })
     }
 
