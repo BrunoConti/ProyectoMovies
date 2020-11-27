@@ -1,5 +1,5 @@
 .App {
-  padding-top: 36px ;
+  padding-top: 36px;
   text-align: center;
 }
 
@@ -10,12 +10,81 @@
 
 .MoviesList {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 16px;
+  column-gap: 5px;
+  height: 100%;
 }
 
-.MoviesList-item{
+.MoviesList-item {
   margin-bottom: 24px;
-  width:  48%;
+  width: 48%;
+  border: 2px solid #fafafa;
+}
+
+.MoviesList-item:hover {
+  box-shadow: 1px 1px 5px #afafaf;
+}
+
+.movieDetail {
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+.movieDetail .section {
+  width: 95vw;
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+/* description */
+.movieDetail .section.description {
+  display: grid;
+  place-items: center;
+}
+
+.movieDetail .section.box {
+  box-shadow: 2px 2px 5px gray;
+  color: var(--letter);
+  padding: 2%;
+}
+
+.movieDetail .section.photo img {
+  max-height: 500px;
+  height: auto;
+  max-width: 500px;
+  width: auto;
+}
+
+.movieDetail .section.photo{
+  padding: 0;
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 600px) {
+  .MoviesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 16px;
+  }
+
+  .movieDetail {
+    grid-template-columns: 50% 50%;
+  }
+
+  .movieDetail .section {
+    width: 45vw;
+  }
+
+  /* primera columna */
+  .movieDetail .section.photo {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+  }
+
+  .propertyDetail .section.description{
+    grid-column: 2;
+    grid-row: 4;
+}
 }

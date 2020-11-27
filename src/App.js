@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
-import { Switch, Route} from 'react-router-dom'
-import { Detail } from './pages/Details'
-import { Home } from './pages/Home'
+import React from "react";
+import { Detail } from "./pages/Details";
+import { Home } from "./pages/Home";
 
-import './App.css';
-import 'bulma/css/bulma.css'
+import "./App.css";
+import "bulma/css/bulma.css";
 
-class App extends Component {
+const App = () => {
+  const url = new URL(document.location)
+  const Page = url.searchParams.has('id') ? <Detail id={url.searchParams.get('id')}></Detail> : <Home></Home>
 
-  render(){
-    return (
-      <div className="App">
-        <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/details/:id' component={Detail}/>
-        </Switch>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      {Page}
+    </div>
+  );
+};
 
 export default App;
